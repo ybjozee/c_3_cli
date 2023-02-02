@@ -9,6 +9,9 @@ fn main() {
     while user_input.trim().ne("q") {
         handle_menu_selection(get_int_from_input(String::from(user_input)));
 
+        println!();
+        print_instructions();
+
         user_input = read_input();
     }
 
@@ -25,6 +28,7 @@ fn print_instructions() {
     println!("Press 1 for the Rustacean temperature converter");
     println!("Press 2 for the Rustacean Fibonacci calculator");
     println!("Press 3 for the Rustacean Chorister");
+    println!("Press 4 for the Rustacean Calculator");
     println!("Press q to exit");
 }
 
@@ -33,6 +37,7 @@ fn handle_menu_selection(input: i8) {
         1 => start_fibonacci_calculator(),
         2 => start_temperature_converter(),
         3 => start_chorister(),
+        4 => print_rectangle_area(),
         _ => {
             println!("I didn't quite catch that");
             print_instructions();
@@ -168,4 +173,47 @@ fn get_suffix_for_day(day: u8) -> String {
         3 => String::from("rd"),
         _ => String::from("th")
     }
+}
+
+#[derive(Debug)]
+struct Rectangle {
+    length: u32,
+    breadth: u32,
+}
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.length * self.breadth
+    }
+
+    fn can_hold(&self, other: &Rectangle) -> bool {
+        self.breadth > other.breadth && self.length > other.length
+    }
+
+    fn square(size: u32) -> Self {
+        Self {
+            length: size,
+            breadth: size,
+        }
+    }
+}
+
+fn print_rectangle_area() {
+    let rect1 = Rectangle {
+        length: 30,
+        breadth: 50,
+    };
+
+    println!("rect 1 is {:?}", rect1);
+    println!("The area of the rectangle is {} square pixels", rect1.area());
+
+    let scale = 2;
+    let rect2 = Rectangle {
+        length: 50,
+        breadth: dbg!(30 * scale),
+    };
+    dbg!(&rect2);
+    println!("rect2 can hold rect1 : {}", rect2.can_hold(&rect1));
+    println!("rect1 can hold rect1 : {}", rect1.can_hold(&rect2));
+    dbg!(Rectangle::square(90));
 }
