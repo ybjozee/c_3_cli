@@ -17,7 +17,7 @@ pub fn get_float_from_input() -> f64 {
         .expect("Provided input should be a number")
 }
 
-fn read_input() -> String {
+pub fn read_input() -> String {
     let mut input = String::new();
 
     io::stdin()

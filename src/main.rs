@@ -3,6 +3,7 @@ use input_processor::get_user_input;
 mod chorister;
 mod fibonacci_calculator;
 mod input_processor;
+mod pig_latin;
 mod rectangle;
 mod statistics;
 mod temperature_converter;
@@ -37,6 +38,7 @@ fn print_instructions() {
     println!("Press 3 for the Rustacean Chorister");
     println!("Press 4 for the Rustacean Calculator");
     println!("Press 5 for the Rustacean Statistician");
+    println!("Press 6 for the Rustacean Pig Latin Translator");
     println!("Press q to exit");
 }
 
@@ -47,6 +49,7 @@ fn handle_menu_selection(input: i8) {
         3 => chorister::sing(),
         4 => rectangle::print_statistics(),
         5 => statistics::print_statistics(),
+        6 => pig_latin::convert(),
         _ => {
             println!("I didn't quite catch that");
             print_instructions();
