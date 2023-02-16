@@ -1,6 +1,7 @@
 use input_processor::get_user_input;
 
 mod chorister;
+mod employee_register;
 mod fibonacci_calculator;
 mod input_processor;
 mod pig_latin;
@@ -39,6 +40,7 @@ fn print_instructions() {
     println!("Press 4 for the Rustacean Calculator");
     println!("Press 5 for the Rustacean Statistician");
     println!("Press 6 for the Rustacean Pig Latin Translator");
+    println!("Press 7 for the Rustacean Employee Register");
     println!("Press q to exit");
 }
 
@@ -50,6 +52,7 @@ fn handle_menu_selection(input: i8) {
         4 => rectangle::print_statistics(),
         5 => statistics::print_statistics(),
         6 => pig_latin::convert(),
+        7 => employee_register::start(),
         _ => {
             println!("I didn't quite catch that");
             print_instructions();
