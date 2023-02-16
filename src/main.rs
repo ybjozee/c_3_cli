@@ -1,11 +1,12 @@
-use input_processor::{get_float_from_input, get_int_from_input, get_user_input};
+use input_processor::get_user_input;
 
 mod chorister;
+mod fibonacci_calculator;
 mod input_processor;
 mod rectangle;
+mod statistics;
 mod temperature_converter;
 mod user_input;
-mod fibonacci_calculator;
 
 fn main() {
     print_introduction();
@@ -35,6 +36,7 @@ fn print_instructions() {
     println!("Press 2 for the Rustacean temperature converter");
     println!("Press 3 for the Rustacean Chorister");
     println!("Press 4 for the Rustacean Calculator");
+    println!("Press 5 for the Rustacean Statistician");
     println!("Press q to exit");
 }
 
@@ -44,6 +46,7 @@ fn handle_menu_selection(input: i8) {
         2 => temperature_converter::start(),
         3 => chorister::sing(),
         4 => rectangle::print_statistics(),
+        5 => statistics::print_statistics(),
         _ => {
             println!("I didn't quite catch that");
             print_instructions();
