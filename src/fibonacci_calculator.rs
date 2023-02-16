@@ -1,11 +1,11 @@
-use crate::input_processor::get_int_from_input;
+use crate::input_processor;
 
 pub fn start() {
     println!("=======================");
     println!("Welcome to the Rustacean Fibonacci calculator");
     println!("What is the value of n?");
 
-    let n = get_int_from_input();
+    let n = input_processor::get_int_from_input();
 
     match n {
         0 => println!("n cannot be 0"),
